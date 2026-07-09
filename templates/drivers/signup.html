@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Drivers Den</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="site-shell signup-shell">
+    <nav class="navbar">
+      <a class="navbar-logo" href="{% url 'drivers:home' %}" aria-label="Go to home page">
+        <span class="navbar-title">DRIVERS <span class="den">DEN</span></span>
+      </a>
+      <div class="navbar-auth">
+        <a href="{% url 'login' %}" class="auth-link">Login</a>
+      </div>
+    </nav>
+
+    <main class="signup-main">
+      <section class="signup-section">
+        <h2>Create your account</h2>
+        <form method="post" action="{% url 'drivers:signup' %}" class="signup-form">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="form-row">{{ form.username.errors }}{{ form.username }}</div>
+          <div class="form-row">{{ form.email.errors }}{{ form.email }}</div>
+          <div class="form-row">{{ form.first_name.errors }}{{ form.first_name }}</div>
+          <div class="form-row">{{ form.last_name.errors }}{{ form.last_name }}</div>
+          <div class="form-row">{{ form.password1.errors }}{{ form.password1 }}</div>
+          <div class="form-row">{{ form.password2.errors }}{{ form.password2 }}</div>
+          <button type="submit" class="primary-btn">Signup</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

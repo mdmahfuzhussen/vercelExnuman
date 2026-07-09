@@ -1,0 +1,11 @@
+Watching for file changes with StatReloader
+[28/Jun/2026 13:04:59] "GET / HTTP/1.1" 200 8497
+[28/Jun/2026 13:04:59,781] - Broken pipe from ('127.0.0.1', 51459)
+C:\Users\mdmah\Desktop\coursera\myProject\numanWeb\numanDjango\dendjango\drivers\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mdmah\Desktop\coursera\myProject\numanWeb\numanDjango\dendjango\drivers\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\mdmah\Desktop\coursera\myProject\numanWeb\numanDjango\dendjango\drivers\models.py changed, reloading.
+Watching for file changes with StatReloader
+[28/Jun/2026 13:19:51] "GET / HTTP/1.1" 200 8128
+[28/Jun/2026 13:19:51,301] - Broken pipe from ('127.0.0.1', 54929)

@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drivers Den</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.0">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="navbar">
+      <a class="navbar-logo" href="{% url 'drivers:home' %}" aria-label="Go to top of page">
+        <span class="navbar-title"><span class="drivers">DRIVERS</span> <span class="den">DEN</span></span>
+      </a>
+      
+      <div class="navbar-menu-bar">
+        <button class="menu-icon" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navbar-links">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+      
+      <div class="navbar-links-wrapper" id="navbar-links">
+        <ul class="navbar-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#area">Service Area</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#safety">Safety</a></li>
+        </ul>
+      </div>
+      
+      <button class="dark-toggle desktop-dark-toggle" id="dark-mode-toggle" type="button">Dark Mode</button>
+    </nav>
+
+    <main>
+      <section class="homepage" id="home">
+        <div class="homepage-content">
+          <h1><span class="drivers">DRIVERS</span> <span class="den">DEN</span></h1>
+          <p class="tagline">Learn to drive with confidence</p>
+          <a href="#booking" class="cta-btn">Book a Lesson</a>
+          <ul class="highlights">
+            <li>Certified instructors</li>
+            <li>Affordable pricing</li>
+            <li>High pass rate</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <h2>About the Instructor</h2>
+        <div class="about-content">
+          <img src="{% static 'images/new.jpeg' %}" alt="Instructor" class="instructor-photo animated-photo">
+          <div>
+            <h3>Md Mahfuz Hussen Mahi</h3>
+            <p>15+ years experience | Certified Driving Instructor</p>
+            <p>Calm, patient, and beginner-friendly teaching style. Dedicated to helping every student become a safe and confident driver.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services fade-in" id="services">
+        <h2>Our Lessons</h2>
+        <div class="services-list">
+          <div class="service-item"><h3>Beginner Lessons</h3><p>Start from scratch with patient, step-by-step guidance.</p></div>
+          <div class="service-item"><h3>Refresher Courses</h3><p>For those who want to regain confidence behind the wheel.</p></div>
+          <div class="service-item"><h3>Intensive Courses</h3><p>Fast-track your learning with focused, immersive lessons.</p></div>
+          <div class="service-item"><h3>Test Preparation</h3><p>Get ready for your driving test with expert tips and mock exams.</p></div>
+          <div class="service-item"><h3>Automatic &amp; Manual</h3><p>Choose your preferred transmission type.</p></div>
+          <div class="service-item"><h3>Instructor Options</h3><p>Male or female instructor available upon request.</p></div>
+        </div>
+      </section>
+
+      <section class="pricing fade-in" id="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-table">
+          <div class="pricing-item">
+            <h3>Single Lesson</h3>
+            <p class="price">£40 / hour</p>
+          </div>
+          <div class="pricing-item">
+            <h3>10 Lesson Package</h3>
+            <p class="price">£350 (Save £50)</p>
+          </div>
+          <div class="pricing-item">
+            <h3>Test Preparation</h3>
+            <p class="price">£60 / session</p>
+          </div>
+          <div class="pricing-item">
+            <h3>Extra Fees</h3>
+            <p>None. No hidden charges.</p>
+          </div>
+        </div>
+        <p class="pricing-note">Simple, transparent pricing. No surprises.</p>
+      </section>
+
+
+        {% comment %} THIS IS BOOKING SECTION  {% endcomment %}
+      <div class="booking-outer-container" id="booking">
+        <section class="form-section">
+            <h2 class="section-title">Book a Lesson</h2>
+            <form method="POST" action="{% url 'drivers:booking' %}" class="styled-form">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ booking_form.as_p }}
+                </div>
+                <button type="submit" class="submit-btn btn-booking" >Submit Lesson Booking</button>
+            </form>
+        </section>
+      </div>
+
+      <section class="service-area fade-in" id="area">
+        <h2>Service Area</h2>
+        <p>We operate in the following areas:</p>
+        <ul>
+          <li>Downtown City</li>
+          <li>Suburbs North &amp; South</li>
+          <li>Eastside &amp; Westside</li>
+          <li>Nearby Towns</li>
+        </ul>
+        <div class="map-placeholder">[Map Coming Soon]</div>
+      </section>
+
+      <section class="reviews fade-in" id="reviews">
+        <h2>Student Reviews</h2>
+        <div class="reviews-list">
+          {% for review in reviews %}
+            <div class="review-item">
+              <p>"{{ review.comment }}"</p>
+              <strong>{{ review.rating }}/5</strong>
+              <span>- {{ review.reviewer_name }}</span>
+            </div>
+          {% empty %}
+            <div class="review-item">
+              <p>No student reviews yet.</p>
+              <span>Be the first to share your experience.</span>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="review-submit-section fade-in" id="review-submit">
+        <div class="review-submit-card">
+          <h2>Leave a Review</h2>
+          
+          <form method="POST" action="{% url 'drivers:submit_review' %}" class="contact-form">
+            {% csrf_token %}
+            <div class="form-fields">
+                {{ review_form.as_p }}
+            </div>
+            <button type="submit" class="submit-btn" style="background-color: #10b981; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Publish Review</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="faq fade-in" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h4>Do I need a learner's license?</h4>
+            <p>Yes, you need a valid learner's license before starting lessons.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How many lessons do I need?</h4>
+            <p>It depends on your experience. Most beginners take 10-15 lessons.</p>
+          </div>
+          <div class="faq-item">
+            <h4>What car will I use?</h4>
+            <p>We provide a modern, dual-control car for all lessons.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can I choose lesson times?</h4>
+            <p>Yes, you can select available dates and times when booking.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@driversden.com">info@driversden.com</a></p>
+        </div>
+        <form class="contact-form" id="contact-form" method="POST" action="{% url 'drivers:contact' %}">
+          {% csrf_token %}
+          <div class="form-fields">
+              {{ contact_form.as_p }}
+          </div>
+          <button type="submit" class="submit-btn btn-contact" style="width: 100%; padding: 12px; font-size: 16px; font-weight: 600; color: white; background-color: #3b82f6; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Send Message</button>
+        </form>
+      </section>
+
+      <section class="safety" id="safety">
+        <h2>Safety &amp; Policies</h2>
+        <ul>
+          <li><strong>Cancellation Policy:</strong> 24-hour notice required for cancellations or rescheduling.</li>
+          <li><strong>Safety Measures:</strong> Dual-control vehicles, regular sanitization, and adherence to all road safety rules.</li>
+          <li><strong>Instructor Qualifications:</strong> All instructors are certified and background-checked.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>&copy; <span id="current-year"></span> DRIVERS DEN. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#safety">Safety &amp; Policies</a>
+        <span>|</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
