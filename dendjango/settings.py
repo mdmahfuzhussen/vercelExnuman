@@ -34,7 +34,12 @@ ALLOWED_HOSTS = ['vercelexnuman.onrender.com', 'localhost', '127.0.0.1']
 # ==============================================================================
 # EMAIL CONFIGURATION (GMAIL SMTP)
 # ==============================================================================
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
+DEFAULT_FROM_EMAIL = "mdmahufuzmahi@gmail.com"
+
+ANYMAIL = {
+    "BREVO_API_KEY": "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",
+}
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
