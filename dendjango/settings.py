@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['vercelexnuman.onrender.com', 'localhost', '127.0.0.1']
 # ==============================================================================
 # EMAIL CONFIGURATION (GMAIL SMTP)
 # ==============================================================================
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
