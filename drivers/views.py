@@ -9,6 +9,24 @@ from django.db import models
 from .forms import BookingForm, ReviewForm, ContactForm
 from .models import Review
 
+from django.core.mail import send_mail
+import logging
+
+logger = logging.getLogger(__name__)
+
+# Inside your booking submission view:
+try:
+    send_mail(
+        'New Lesson Booking',
+        'Here is the booking information...',
+        'mdmahufuzmahi@gmail.com',
+        ['target_email@gmail.com'],
+        fail_silently=False, # Set to False inside the try block to log it properly
+    )
+except Exception as e:
+    # This prevents the 500 error! The website keeps running even if the email fails.
+    logger.error(f"Email failed to send: {e}")
+
 
 def home(request):
     # Standard clean form since users no longer log in
