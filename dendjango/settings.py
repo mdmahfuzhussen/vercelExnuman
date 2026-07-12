@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-7!**@##oqyp+lt#u1_fe3$@v@)!(e30a84mxenjcgv)1g1bds!
 DEBUG = False
 
 # In settings.py
-ALLOWED_HOSTS = [ * ]
+ALLOWED_HOSTS = [ '*' ]
 # ==============================================================================
 # EMAIL CONFIGURATION (GMAIL SMTP)
 # ==============================================================================
