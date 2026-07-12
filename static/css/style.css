@@ -500,6 +500,23 @@ main {
   font-size: 1rem;
 }
 
+.price-btn{
+    margin-top:30px;
+    padding:14px 30px;
+    background:#d71920;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.price-btn:hover{
+    background:#b8141a;
+}
+
 /* Hidden section */
 .hidden-pricing {
     display: none;
