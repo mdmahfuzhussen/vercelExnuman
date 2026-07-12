@@ -37,7 +37,7 @@ EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 DEFAULT_FROM_EMAIL = "driversdenlearning@gmail.com"
 
 ANYMAIL = {
-    "BREVO_API_KEY": "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",
+    "BREVO_API_KEY": "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",
 }
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
