@@ -49,7 +49,7 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'mdmahufuzmahi@gmail.com'
 EMAIL_HOST_PASSWORD = 'gwwjbyefyeazikel'  
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Application definition
 
 INSTALLED_APPS = [
