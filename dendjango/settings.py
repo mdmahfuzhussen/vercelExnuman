@@ -34,7 +34,7 @@ ALLOWED_HOSTS = [ '*' ]
 # EMAIL CONFIGURATION (GMAIL SMTP)
 # ==============================================================================
 EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
-DEFAULT_FROM_EMAIL = "mdmahufuzmahi@gmail.com"
+DEFAULT_FROM_EMAIL = "driversdenlearning@gmail.com"
 
 ANYMAIL = {
     "BREVO_API_KEY": "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",
@@ -43,8 +43,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'mdmahufuzmahi@gmail.com'
-EMAIL_HOST_PASSWORD = 'gwwjbyefyeazikel'  
+EMAIL_HOST_USER = 'driversdenlearning@gmail.com'
+EMAIL_HOST_PASSWORD = 'izfoopjiosaebfnn'  
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Application definition
 
