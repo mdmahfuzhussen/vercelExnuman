@@ -500,6 +500,54 @@ main {
   font-size: 1rem;
 }
 
+/* Hidden section */
+.hidden-pricing {
+    display: none;
+    margin-top: 30px;
+    animation: fadeIn .4s ease;
+}
+
+.hidden-pricing.show {
+    display: block;
+}
+
+.hidden-pricing h3.section-subtitle {
+    margin: 40px 0 10px;
+    font-size: 24px;
+    color: #222;
+}
+
+.hidden-pricing hr {
+    margin: 40px auto 10px;
+    max-width: 900px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode support for the hidden section dividers and subheadings */
+body.dark-mode .hidden-pricing h3.section-subtitle {
+    color: #f4f8fb;
+}
+
+body.dark-mode .hidden-pricing hr {
+    border-top-color: #31363a;
+}
+
+/* end of the hidden pricing */
+
+
+
 .booking-form,
 .review-form,
 .contact-form,
@@ -894,6 +942,7 @@ body.dark-mode .contact-form textarea,
 body.dark-mode .signup-form input {
   background: #23272a;
   color: #f4f8fb;
+  border-color: #3f4b52;
 }
 
 body.dark-mode .booking-form input,
