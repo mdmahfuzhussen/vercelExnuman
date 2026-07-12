@@ -1,12 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+COURSE_CHOICES = [
+    ('Single Lesson - £40/hr', 'Single Lesson - £40/hr'),
+    ('10 Lesson Package - £350', '10 Lesson Package - £350'),
+    ('Test Preparation - £60/session', 'Test Preparation - £60/session'),
+    ('1 Hour Offer - £34', '1 Hour Offer - £34'),
+    ('2 Hour Intro Offer - £64', '2 Hour Intro Offer - £64'),
+    ('2 Hour Assessment - £64', '2 Hour Assessment - £64'),
+    ('6 Hour Offer - £198', '6 Hour Offer - £198'),
+    ('10 Hour Block Booking - £330', '10 Hour Block Booking - £330'),
+    ('20 Hour Course - £660', '20 Hour Course - £660'),
+    ('30 Hour Course - £990', '30 Hour Course - £990'),
+    ('10 Hour Rebook - £340', '10 Hour Rebook - £340'),
+]
 
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120)
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True, null=True)
+    course = models.CharField(max_length=100, choices=COURSE_CHOICES, default='Single Lesson - £40/hr')
     date = models.DateField()
     time = models.TimeField()
     message = models.TextField(blank=True)
