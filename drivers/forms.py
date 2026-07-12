@@ -42,13 +42,14 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         # 1. Added 'phone' to the tracking fields list
-        fields = ['name', 'email', 'phone', 'date', 'time', 'message']
+        fields = ['name', 'email', 'phone', 'course', 'date', 'time', 'message']
         
         # 2. Added a dynamic styling widget for the phone field
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Your Name'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Your Email'}),
             'phone': forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Phone Number'}),
+            'course': forms.Select(attrs={'class': 'form-control'}),
             'date': forms.DateInput(attrs={'type': 'date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
             'message': forms.Textarea(attrs={'placeholder': 'Message (optional)', 'rows': 4}),
