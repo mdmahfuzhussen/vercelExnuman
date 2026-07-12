@@ -49,6 +49,7 @@ def booking(request):
                 message=(
                     f"New booking request from {booking.name}\n"
                     f"Email: {booking.email}\n"
+                    f"Phone: {booking.phone or 'No phone provided'}\n"
                     f"Date: {booking.date}\n"
                     f"Time: {booking.time}\n"
                     f"Message: {booking.message or 'No message provided'}"
