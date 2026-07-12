@@ -55,7 +55,7 @@ def booking(request):
                     f"Message: {booking.message or 'No message provided'}"
                 ),
                 from_email=settings.EMAIL_HOST_USER, 
-                recipient_list=['mdmahufuzmahi@gmail.com'],
+                recipient_list=['driversdenlearning@gmail.com'],
                 fail_silently=False,
             )
         except Exception as e:
@@ -114,7 +114,7 @@ def contact(request):
                     f"Message:\n{contact_msg.message}"
                 ),
                 from_email=settings.EMAIL_HOST_USER,
-                recipient_list=['mdmahufuzmahi@gmail.com'],
+                recipient_list=['driversdenlearning@gmail.com'],
                 fail_silently=False,
             )
         except Exception as e:
