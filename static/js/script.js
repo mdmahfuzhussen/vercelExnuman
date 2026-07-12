@@ -71,3 +71,19 @@ if (menuButton && navLinks) {
     });
   });
 }
+
+
+const btn = document.getElementById("togglePrices");
+const pricing = document.getElementById("hiddenPricing");
+
+btn.addEventListener("click", function () {
+
+    pricing.classList.toggle("show");
+
+    if (pricing.classList.contains("show")) {
+        btn.textContent = "Hide Full Price List";
+    } else {
+        btn.textContent = "View Full Price List";
+    }
+
+});
